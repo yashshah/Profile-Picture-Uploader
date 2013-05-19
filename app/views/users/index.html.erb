@@ -1,25 +1,25 @@
-<h1>Listing users</h1>
-
-<table>
-  <tr>
-    <th>Profile Picture</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="page-header">
+  <h1>All Users</h1>
+</div>
 
 <% @users.each do |user| %>
-  <tr>
-    <td><%= image_tag user.profile_picture.url(:thumb) %></td>    
-    <td><%= user.name %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class="user">
+  <div class ="row">
+    
+    <div class = "span1">
+     <%= image_tag user.profile_picture.url(:thumb) %>
+    </div>
+  
+  <div class ="span7">  
+    <p><strong><%= user.name %></strong></p>
+    
+    <div class="meta">
+      <%= link_to time_ago_in_words(user.created_at) + " ago", user %> 
+        | <%= link_to "Edit", edit_user_path(user) %> | 
+        <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure your want to delete this User?"} %>
+    
+    </div>
+   </div>
+</div>  
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>
