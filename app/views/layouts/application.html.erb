@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ImageUploader</title>
+  <title>Profile Picture Uploader</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">			
+			<div class="brand">
+				<%= link_to "Profile Picture Uploader", profiles_path %>
+		    </div>
+		    <ul class="nav pull-right">
+		    	<li><%= link_to "Add Profile", newprofile_path %>
+		    </ul>
+		</div>
+	</div>
+</div>
 
-<%= yield %>
+<div class="container">
+	<%= yield %>
+</div>
 
 </body>
 </html>
